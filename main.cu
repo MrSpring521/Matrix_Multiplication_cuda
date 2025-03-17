@@ -61,7 +61,7 @@ int main(void)
     cudaMalloc((float**)&RGDevice,sizeof(float)*size*size);
     cudaMalloc((float**)&ADevice,sizeof(float)*size*size);
     cudaMalloc((float**)&BDevice,sizeof(float)*size*size);
-    cudaMemcpy(RGDevice,RG,sizeof(float)*size*size,cudaMemcpyHostToDevice);
+    //cudaMemcpy(RGDevice,RG,sizeof(float)*size*size,cudaMemcpyHostToDevice);
     cudaMemcpy(ADevice,A,sizeof(float)*size*size,cudaMemcpyHostToDevice);
     cudaMemcpy(BDevice,B,sizeof(float)*size*size,cudaMemcpyHostToDevice);
     dim3 threadsPerBlock(32, 32); // 每个block中的线程数
