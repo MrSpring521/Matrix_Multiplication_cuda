@@ -64,7 +64,7 @@ int main(void)
     cudaMemcpy(RGDevice,RG,sizeof(float)*size*size,cudaMemcpyHostToDevice);
     cudaMemcpy(ADevice,A,sizeof(float)*size*size,cudaMemcpyHostToDevice);
     cudaMemcpy(BDevice,B,sizeof(float)*size*size,cudaMemcpyHostToDevice);
-    dim3 threadsPerBlock(16, 16); // 每个block中的线程数
+    dim3 threadsPerBlock(32, 32); // 每个block中的线程数,最大为1024
     dim3 numBlocks((size + threadsPerBlock.x - 1) / threadsPerBlock.x, 
                    (size + threadsPerBlock.y - 1) / threadsPerBlock.y); // block的数量
     matex_GPU<<<numBlocks, threadsPerBlock>>>(ADevice,BDevice,RGDevice);
